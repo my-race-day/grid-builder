@@ -198,8 +198,8 @@ export const generateCSV = (finalGrid, gridName) => {
             const waveNum = `"${waveIndex + 1}"`;
             const carNum = `"${entry.Number || ''}"`;
             const driver = `"${entry.Driver || ''}"`;
-            const driverClass = `"${entry.Class || ''}"`;
-            const bestTime = `"${entry.BestTime || ''}"`;
+            const driverClass = `"${entry.originalClass || entry.Class || ''}"`;
+            const bestTime = entry.BestTime ? `"'${entry.BestTime}"` : `""`;
             
             csvLines.push(`${gridPos},${waveNum},${carNum},${driver},${driverClass},${bestTime}`);
             currentPosition++;
